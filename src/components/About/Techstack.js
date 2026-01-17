@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { CgCPlusPlus } from "react-icons/cg";
 import {
   DiJavascript1,
   DiReact,
@@ -8,61 +7,69 @@ import {
   DiMongodb,
   DiPython,
   DiGit,
-  DiJava,
 } from "react-icons/di";
 import {
-  SiRedis,
   SiFirebase,
-  SiNextdotjs,
-  SiSolidity,
   SiPostgresql,
+  SiMysql,
+  SiAmazonaws,
+  SiMicrosoftazure,
+  SiDocker,
 } from "react-icons/si";
-import { TbBrandGolang } from "react-icons/tb";
+import { TbBrandReactNative } from "react-icons/tb";
 
 function Techstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <CgCPlusPlus />
-      </Col>
+      {/* Languages */}
       <Col xs={4} md={2} className="tech-icons">
         <DiJavascript1 />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <TbBrandGolang />
+        <DiPython />
       </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiNodejs />
-      </Col>
+
+      {/* Frontend */}
       <Col xs={4} md={2} className="tech-icons">
         <DiReact />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiSolidity />
+        <TbBrandReactNative />
       </Col>
+
+      {/* Backend */}
+      <Col xs={4} md={2} className="tech-icons">
+        <DiNodejs />
+      </Col>
+
+      {/* Databases */}
       <Col xs={4} md={2} className="tech-icons">
         <DiMongodb />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiNextdotjs />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiGit />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiFirebase />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiRedis />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiPostgresql />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <DiPython />
+        <SiMysql />
+      </Col>
+
+      {/* Cloud & DevOps */}
+      <Col xs={4} md={2} className="tech-icons">
+        <SiAmazonaws />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <DiJava />
+        <SiMicrosoftazure />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiFirebase />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiDocker />
+      </Col>
+
+      {/* Tools */}
+      <Col xs={4} md={2} className="tech-icons">
+        <DiGit />
       </Col>
     </Row>
   );
