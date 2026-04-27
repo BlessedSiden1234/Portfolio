@@ -1,80 +1,65 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Particle from "../Particle";
-import certPdf from "../../Assets/Blessed_Siden_Cert.pdf";
-import { AiOutlineDownload } from "react-icons/ai";
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+import "./CertificationCard.css";
 
 function Certification() {
-  const [width, setWidth] = useState(1200);
-  const [pdfBlob, setPdfBlob] = useState(null);
-  const [numPages, setNumPages] = useState(null);
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-
-    // Convert imported PDF to blob for react-pdf
-    fetch(certPdf)
-      .then((res) => res.blob())
-      .then((blob) => setPdfBlob(blob));
-  }, []);
-
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
-  };
+  const certifications = [
+    {
+      id: "main",
+      title: "Main Certificate",
+      description: "Primary certification",
+      link: "/certification/main"
+    },
+    {
+      id: "nysc",
+      title: "NYSC Certificate",
+      description: "National Youth Service Corps Certification",
+      link: "/certification/nysc"
+    },
+    {
+      id: "cryptography",
+      title: "Cryptography Certificate",
+      description: "Cryptography Certification",
+      link: "/certification/cryptography"
+    },
+    {
+      id: "design-analyst",
+      title: "Design Analyst Certificate",
+      description: "Design Analyst Certification",
+      link: "/certification/design-analyst"
+    },
+    {
+      id: "technical-support",
+      title: "Technical Support Certificate",
+      description: "Technical Support Certification",
+      link: "/certification/technical-support"
+    }
+  ];
 
   return (
     <Container fluid className="resume-section">
       <Particle />
 
-      {/* Top Download Button */}
-      <Row style={{ justifyContent: "center", position: "relative" }}>
-        <Button
-          variant="primary"
-          href={certPdf}
-          target="_blank"
-          style={{ maxWidth: "320px" }}
-        >
-          <AiOutlineDownload />
-          &nbsp;Download Certificate
-        </Button>
+      <Row style={{ justifyContent: "center", marginBottom: "50px" }}>
+        <h1 style={{ textAlign: "center", color: "white" }}>Certifications</h1>
       </Row>
 
-      {/* PDF Viewer */}
-      <Row className="resume d-flex justify-content-center">
-        {pdfBlob && (
-          <Document
-            file={pdfBlob}
-            onLoadSuccess={onDocumentLoadSuccess}
-            className="d-flex flex-column align-items-center"
-          >
-            {Array.from(new Array(numPages), (_, index) => (
-              <Page
-                key={`page_${index + 1}`}
-                pageNumber={index + 1}
-                scale={width > 786 ? 1.6 : 0.6}
-                className="mb-4"
-              />
-            ))}
-          </Document>
-        )}
-      </Row>
-
-      {/* Bottom Download Button */}
-      <Row style={{ justifyContent: "center", position: "relative" }}>
-        <Button
-          variant="primary"
-          href={certPdf}
-          target="_blank"
-          style={{ maxWidth: "320px" }}
-        >
-          <AiOutlineDownload />
-          &nbsp;Download Certificate
-        </Button>
+      <Row className="certifications-grid">
+        {certifications.map((cert) => (
+          <Col md={6} lg={4} key={cert.id} className="mb-4">
+            <Link to={cert.link} className="cert-card-link">
+              <div className="cert-card">
+                <div className="cert-card-content">
+                  <h4>{cert.title}</h4>
+                  <p>{cert.description}</p>
+                  <span className="view-link">View Certificate →</span>
+                </div>
+              </div>
+            </Link>
+          </Col>
+        ))}
       </Row>
     </Container>
   );
