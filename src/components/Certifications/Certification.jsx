@@ -35,6 +35,12 @@ function Certification() {
       title: "Technical Support Certificate",
       description: "Technical Support Certification",
       link: "/certification/technical-support"
+    },
+    {
+      id: "object-detection",
+      title: "Object Detection Certificate",
+      description: "Object Detection Certification",
+      link: "/certification/object-detection"
     }
   ];
 

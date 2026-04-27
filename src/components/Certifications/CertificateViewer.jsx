@@ -12,6 +12,7 @@ import nyscCertPdf from "../../Assets/nysc_cert.pdf";
 import cryptographyPdf from "../../Assets/cryptography.pdf";
 import designAnalystPdf from "../../Assets/design_analyst.pdf";
 import technicalSupportPdf from "../../Assets/technical_support.pdf";
+import objectDetectionPdf from "../../Assets/object_detection.pdf";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -20,7 +21,8 @@ const certificates = {
   nysc: { title: "NYSC Certificate", pdf: nyscCertPdf },
   cryptography: { title: "Cryptography Certificate", pdf: cryptographyPdf },
   "design-analyst": { title: "Design Analyst Certificate", pdf: designAnalystPdf },
-  "technical-support": { title: "Technical Support Certificate", pdf: technicalSupportPdf }
+  "technical-support": { title: "Technical Support Certificate", pdf: technicalSupportPdf },
+  "object-detection": { title: "Object Detection Certificate", pdf: objectDetectionPdf }
 };
 
 function CertificateViewer() {
