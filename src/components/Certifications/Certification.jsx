@@ -8,8 +8,8 @@ function Certification() {
   const certifications = [
     {
       id: "main",
-      title: "Main Certificate",
-      description: "Primary certification",
+      title: "Computer Science Certificate",
+      description: "Computer Science certification",
       link: "/certification/main"
     },
     {
